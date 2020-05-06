@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 548279457}
   - component: {fileID: 548279456}
   - component: {fileID: 548279455}
-  - component: {fileID: 548279460}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -313,22 +312,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &548279460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 548279454}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a6d8ba431078c14cbdeaa8521e596ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Surface: {fileID: 1686030360}
-  faces: {fileID: 4900000, guid: 9de668e9f3f950d4896367d37adee17e, type: 3}
-  eyes: {fileID: 4900000, guid: 7a38ff7408f1a7e419017b5f6b866170, type: 3}
-  shapes: {fileID: 4900000, guid: db748dfc86b613b48abde27d52b10338, type: 3}
 --- !u!1 &1363933668
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,7 +465,7 @@ MonoBehaviour:
   Surface: {fileID: 1686030360}
   faces: {fileID: 4900000, guid: 6b25a0e0227666d40b282be78b80780c, type: 3}
   eyes: {fileID: 4900000, guid: a1203bc8d0ab3b5469c52993e6874d7a, type: 3}
-  shapes: {fileID: 4900000, guid: 8141d4a0988291c4f9e5fba2a3e448f1, type: 3}
+  shapes: {fileID: 4900000, guid: 3092b82351f7eeb4aabe4a6a3d026ee7, type: 3}
 --- !u!114 &1686030363
 MonoBehaviour:
   m_ObjectHideFlags: 0

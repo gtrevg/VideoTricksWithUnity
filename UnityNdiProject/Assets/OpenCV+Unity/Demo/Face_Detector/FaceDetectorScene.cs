@@ -20,7 +20,7 @@
 		protected override void Awake()
 		{
 			base.Awake();
-			base.forceFrontalCamera = true; // we work with frontal cams here, let's force it for macOS s MacBook doesn't state frontal cam correctly
+			//base.forceFrontalCamera = true; // we work with frontal cams here, let's force it for macOS s MacBook doesn't state frontal cam correctly
 
 			byte[] shapeDat = shapes.bytes;
 			if (shapeDat.Length == 0)
