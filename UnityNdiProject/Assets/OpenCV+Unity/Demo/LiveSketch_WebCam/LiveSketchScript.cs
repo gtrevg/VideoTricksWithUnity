@@ -37,5 +37,10 @@
 			output = Unity.MatToTexture(mask, output);
 			return true;
 		}
+
+		protected override bool ProcessTexture2(RenderTexture input, ref Texture2D output)
+		{
+			throw new System.NotImplementedException();
+		}
 	}
 }

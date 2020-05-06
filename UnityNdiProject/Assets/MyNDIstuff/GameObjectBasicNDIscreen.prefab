@@ -43,8 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cadade9d79e66642a6893ac902ddf32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sourceName: DESKTOP-A98BC6G (OBS_Alien)
+  _sourceName: DESKTOP-A98BC6G (NVIDIA GeForce GTX 770M 1)
   _targetTexture: {fileID: 8400000, guid: 2ddec18c93187fa46a5357bc52b447df, type: 2}
-  _targetRenderer: {fileID: 3519205808184939179, guid: 498e86ee43c50394ea9fda27aa1e4ac2,
-    type: 3}
+  _targetRenderer: {fileID: 0}
   _targetMaterialProperty: _MainTex

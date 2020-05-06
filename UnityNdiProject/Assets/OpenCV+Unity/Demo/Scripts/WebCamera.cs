@@ -18,7 +18,7 @@ namespace OpenCvSharp.Demo
 		/// Target surface to render WebCam stream
 		/// </summary>
 		public GameObject Surface;
-
+		public RenderTexture rt;
 		private Nullable<WebCamDevice> webCamDevice = null;
 		private WebCamTexture webCamTexture = null;
 		private Texture2D renderedTexture = null;
@@ -153,7 +153,7 @@ namespace OpenCvSharp.Demo
 				ReadTextureConversionParameters();
 
 				// process texture with whatever method sub-class might have in mind
-				if (ProcessTexture(webCamTexture, ref renderedTexture))
+				if (ProcessTexture2(rt, ref renderedTexture))
 				{
 					RenderFrame();
 				}
@@ -168,7 +168,8 @@ namespace OpenCvSharp.Demo
 		/// <param name="output">Output Texture2D object</param>
 		/// <returns>True if anything has been processed, false if output didn't change</returns>
 		protected abstract bool ProcessTexture(WebCamTexture input, ref Texture2D output);
-
+		protected abstract bool ProcessTexture2(RenderTexture input, ref Texture2D output);
+		
 		/// <summary>
 		/// Renders frame onto the surface
 		/// </summary>

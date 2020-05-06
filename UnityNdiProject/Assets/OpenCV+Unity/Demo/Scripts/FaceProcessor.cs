@@ -154,8 +154,20 @@
                 return Unity.TextureToMat(texture as UnityEngine.Texture2D, texParams);
             else if (texture is UnityEngine.WebCamTexture)
                 return Unity.TextureToMat(texture as UnityEngine.WebCamTexture, texParams);
+            else if (texture is UnityEngine.RenderTexture) {
+                UnityEngine.Texture2D temp2d = toTexture2D(texture as UnityEngine.RenderTexture);
+                return Unity.TextureToMat(temp2d as UnityEngine.Texture2D, texParams);
+            }
             else
                 throw new Exception("FaceProcessor: incorrect input texture type, must be Texture2D or WebCamTexture");
+        }
+        UnityEngine.Texture2D toTexture2D(UnityEngine.RenderTexture rTex)
+        {
+            UnityEngine.Texture2D tex = new UnityEngine.Texture2D(256, 256, UnityEngine.TextureFormat.RGB24, false);
+            UnityEngine.RenderTexture.active = rTex;
+            tex.ReadPixels(new UnityEngine.Rect(0, 0, rTex.width, rTex.height), 0, 0);
+            tex.Apply();
+            return tex;
         }
 
         /// <summary>
