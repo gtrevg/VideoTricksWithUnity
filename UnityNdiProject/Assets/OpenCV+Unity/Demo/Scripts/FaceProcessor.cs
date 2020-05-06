@@ -3,12 +3,13 @@
 	using System;
 	using System.Collections.Generic;
 	using OpenCvSharp;
+    using UnityEngine;
 
-	/// <summary>
-	/// Array utilities
-	/// http://stackoverflow.com/questions/1792470/subset-of-array-in-c-sharp
-	/// </summary>
-	static partial class ArrayUtilities
+    /// <summary>
+    /// Array utilities
+    /// http://stackoverflow.com/questions/1792470/subset-of-array-in-c-sharp
+    /// </summary>
+    static partial class ArrayUtilities
     {
         // create a subset from a range of indices
         public static T[] RangeSubset<T>(this T[] array, int startIndex, int length)
@@ -236,7 +237,7 @@
                 gray = normalized;*/
 
                 // detect matching regions (faces bounding)
-                Rect[] rawFaces = cascadeFaces.DetectMultiScale(gray, 1.2, 6);
+                OpenCvSharp.Rect[] rawFaces = cascadeFaces.DetectMultiScale(gray, 1.2, 6);
 				if (Faces.Count != rawFaces.Length)
 					Faces.Clear();
 
@@ -244,14 +245,14 @@
                 int facesCount = 0;
                 for (int i = 0; i < rawFaces.Length; ++i)
                 {
-                    Rect faceRect = rawFaces[i];
-                    Rect faceRectScaled = faceRect * invF;
+                    OpenCvSharp.Rect faceRect = rawFaces[i];
+                    OpenCvSharp.Rect faceRectScaled = faceRect * invF;
                     using (Mat grayFace = new Mat(gray, faceRect))
                     {
                         // another trick: confirm the face with eye detector, will cut some false positives
                         if (cutFalsePositivesWithEyesSearch && null != cascadeEyes)
                         {
-                            Rect[] eyes = cascadeEyes.DetectMultiScale(grayFace);
+                            OpenCvSharp.Rect[] eyes = cascadeEyes.DetectMultiScale(grayFace);
                             if (eyes.Length == 0 || eyes.Length > 2)
                                 continue;
                         }
@@ -354,5 +355,7 @@
             bool acceptedFrame = (0 == Performance.SkipRate || 0 == frameCounter++ % Performance.SkipRate);
             base.ProcessTexture(texture, texParams, detect && acceptedFrame);
         }
+
+       
     }
 }

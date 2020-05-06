@@ -1,48 +1,50 @@
-// KlakNDI - NDI plugin for Unity
-// https://github.com/keijiro/KlakNDI
-
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Klak.Ndi
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Klak/NDI/NDI Receiver")]
-    public  class NdiReceiver : MonoBehaviour
+    public class NdiReceiverCam : MonoBehaviour
     {
-        #region Source settings
-
         [SerializeField] string _sourceName;
 
-        public string sourceName {
+        public string sourceName
+        {
             get { return _sourceName; }
-            set {
+            set
+            {
                 if (_sourceName == value) return;
                 _sourceName = value;
                 RequestReconnect();
             }
         }
 
-        #endregion
+ 
 
         #region Target settings
 
         [SerializeField] RenderTexture _targetTexture;
 
-        public RenderTexture targetTexture {
+        public RenderTexture targetTexture
+        {
             get { return _targetTexture; }
             set { _targetTexture = value; }
         }
 
         [SerializeField] Renderer _targetRenderer;
 
-        public Renderer targetRenderer {
+        public Renderer targetRenderer
+        {
             get { return _targetRenderer; }
             set { _targetRenderer = value; }
         }
 
         [SerializeField] string _targetMaterialProperty = null;
 
-        public string targetMaterialProperty {
+        public string targetMaterialProperty
+        {
             get { return _targetMaterialProperty; }
             set { _targetMaterialProperty = value; }
         }
@@ -53,7 +55,8 @@ namespace Klak.Ndi
 
         RenderTexture _receivedTexture;
 
-        public Texture receivedTexture {
+        public Texture receivedTexture
+        {
             get { return _targetTexture != null ? _targetTexture : _receivedTexture; }
         }
 
@@ -174,7 +177,7 @@ namespace Klak.Ndi
             }
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         // Invoke update on repaint in edit mode. This is needed to update the
         // shared texture without getting the object marked dirty.
@@ -190,7 +193,7 @@ namespace Klak.Ndi
             RenderTexture.active = activeRT;
         }
 
-        #endif
+#endif
 
         #endregion
     }

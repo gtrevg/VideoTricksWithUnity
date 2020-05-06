@@ -8,9 +8,12 @@
 
 	public class FaceDetectorScene : WebCamera
 	{
+		public RenderTexture NDIsourceRenTex;
+
 		public TextAsset faces;
 		public TextAsset eyes;
 		public TextAsset shapes;
+
 
 		private FaceProcessorLive<WebCamTexture> processor;
 
@@ -68,6 +71,16 @@
 			output = Unity.MatToTexture(processor.Image, output);   // if output is valid texture it's buffer will be re-used, otherwise it will be re-created
 
 			return true;
+		}
+
+	 
+		UnityEngine.Texture2D toTexture2D(RenderTexture rTex)
+		{
+			Texture2D tex = new Texture2D(512, 512, TextureFormat.RGB24, false);
+			RenderTexture.active = rTex;
+			tex.ReadPixels(new UnityEngine.Rect(0, 0, rTex.width, rTex.height), 0, 0);
+			tex.Apply();
+			return tex;
 		}
 	}
 }

@@ -177,10 +177,11 @@ namespace OpenCvSharp.Demo
 			if (renderedTexture != null)
 			{
 				// apply
-				Surface.GetComponent<RawImage>().texture = renderedTexture;
+				//Surface.GetComponent<RawImage>().texture = renderedTexture;
+				Surface.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", renderedTexture);
 
 				// Adjust image ration according to the texture sizes 
-				Surface.GetComponent<RectTransform>().sizeDelta = new Vector2(renderedTexture.width, renderedTexture.height);
+				//Surface.GetComponent<RectTransform>().sizeDelta = new Vector2(renderedTexture.width, renderedTexture.height);
 			}
 		}
 	}
