@@ -4,7 +4,7 @@ namespace OpenCvSharp.Demo
 	using UnityEngine;
 	using UnityEngine.UI;
 	using OpenCvSharp;
-
+	using Klak.Ndi;
 	// Many ideas are taken from http://answers.unity3d.com/questions/773464/webcamtexture-correct-resolution-and-ratio.html#answer-1155328
 
 	/// <summary>
@@ -44,6 +44,17 @@ namespace OpenCvSharp.Demo
 			}
 			set
 			{
+
+				WebCamDevice[] devices = WebCamTexture.devices;
+				for (int i = 0; i < devices.Length; i++)
+					Debug.Log(devices[i].name);
+
+				string[] ndiSourceNames= NdiManager.GetSourceNames();
+
+				for (int i = 0; i < ndiSourceNames.Length; i++)
+					Debug.Log(ndiSourceNames[i]);
+		
+
 				// quick test
 				if (value == DeviceName)
 					return;
@@ -111,7 +122,7 @@ namespace OpenCvSharp.Demo
 		protected virtual void Awake()
 		{
 			if (WebCamTexture.devices.Length > 0)
-				DeviceName = WebCamTexture.devices[WebCamTexture.devices.Length - 1].name;
+				DeviceName = WebCamTexture.devices[WebCamTexture.devices.Length - 2].name;
 		}
 
 		void OnDestroy() 

@@ -7,7 +7,7 @@ namespace Klak.Ndi
 {
     [ExecuteInEditMode]
     [AddComponentMenu("Klak/NDI/NDI Receiver")]
-    public sealed class NdiReceiver : MonoBehaviour
+    public  class NdiReceiver : MonoBehaviour
     {
         #region Source settings
 
