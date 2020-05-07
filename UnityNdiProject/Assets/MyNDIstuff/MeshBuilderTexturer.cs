@@ -6,6 +6,7 @@ public class MeshBuilderTexturer : MonoBehaviour
 {
     public Material leMateriel;
     private Vector2[] headDownUv;
+    public GameObject targ;
     Mesh mesh;
 
     private void OnEnable()

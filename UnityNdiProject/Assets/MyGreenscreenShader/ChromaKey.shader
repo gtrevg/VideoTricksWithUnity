@@ -2,7 +2,7 @@
 {
    Properties {
 _MainTex ("Base (RGB)", 2D) = "white" {}
-_thresh ("Threshold", Range (0, 16)) = 0.65
+_thresh ("Threshold", Range (0, 16)) = 0.1
 _slope ("Slope", Range (0, 1)) = 0.63
 _keyingColor ("KeyColour", Color) = (1,1,1,1)
 }
@@ -20,7 +20,7 @@ Pass {
     CGPROGRAM
         #pragma vertex vert_img
         #pragma fragment frag
-        #pragma fragmentoptionARB_precision_hint_fastest
+        #pragma fragmentoption ARB_precision_hint_fastest
         #pragma target 2.0
         sampler2D _MainTex;
         float3 _keyingColor;
