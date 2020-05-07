@@ -23,6 +23,8 @@ namespace OpenCvSharp.Demo
 		private WebCamTexture webCamTexture = null;
 		private Texture2D renderedTexture = null;
 
+		public bool usingCanvasImage;
+
 		/// <summary>
 		/// A kind of workaround for macOS issue: MacBook doesn't state it's webcam as frontal
 		/// </summary>
@@ -97,7 +99,7 @@ namespace OpenCvSharp.Demo
 			Unity.TextureConversionParams parameters = new Unity.TextureConversionParams();
 
 			// frontal camera - we must flip around Y axis to make it mirror-like
-			parameters.FlipHorizontally = forceFrontalCamera || webCamDevice.Value.isFrontFacing;
+			parameters.FlipHorizontally = false;// forceFrontalCamera || webCamDevice.Value.isFrontFacing;
 			
 			// TODO:
 			// actually, code below should work, however, on our devices tests every device except iPad
@@ -177,11 +179,20 @@ namespace OpenCvSharp.Demo
 		{
 			if (renderedTexture != null)
 			{
-				// apply
-				Surface.GetComponent<RawImage>().texture = renderedTexture;
+				if (usingCanvasImage)
+				{           // apply
+					Surface.GetComponent<RawImage>().texture = renderedTexture;
 
-				// Adjust image ration according to the texture sizes 
-				Surface.GetComponent<RectTransform>().sizeDelta = new Vector2(renderedTexture.width, renderedTexture.height);
+					// Adjust image ration according to the texture sizes 
+					Surface.GetComponent<RectTransform>().sizeDelta = new Vector2(renderedTexture.width, renderedTexture.height);
+				}
+
+				else
+					{
+					//just apply to material s main texture
+					Surface.GetComponent<MeshRenderer>().material.SetTexture("_MainTex", renderedTexture);
+				}
+	
 			}
 		}
 	}

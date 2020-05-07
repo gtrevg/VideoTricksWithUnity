@@ -12,7 +12,6 @@
 		public TextAsset faces;
 		public TextAsset eyes;
 		public TextAsset shapes;
-
 		private FaceProcessorLive<RenderTexture> processor;
 		 
 		/// <summary>
