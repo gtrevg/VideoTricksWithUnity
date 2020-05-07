@@ -23,7 +23,7 @@ public class MeshBuilderTexturer : MonoBehaviour
          _head_y = _textureHeight- y;
          _head_W = w;
          _head_H =h;
-        print(x + " " + y+ " " + w+ " " +h );
+      //  print(x + " " + y+ " " + w+ " " +h );
       headDownUv = GetUVRectFromPixels(_head_x, _head_y, _head_W, _head_H, _textureWidth, _textureHeight);
       ApplyUvToUvArray(headDownUv, ref uv);
         mesh.uv = uv;
@@ -89,10 +89,11 @@ public class MeshBuilderTexturer : MonoBehaviour
         mesh.normals = normals;
 
         GameObject go = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
-        go.transform.localScale = new Vector3(2, 2, 1);
+        go.transform.localScale = new Vector3(0.35f, 0.4f, 1);
         go.GetComponent<MeshFilter>().mesh = mesh;
         go.GetComponent<MeshRenderer>().material = leMateriel;
         go.transform.parent = this.transform;
+        go.transform.localPosition = new Vector3(0, 0, 0);
 
 
     }
