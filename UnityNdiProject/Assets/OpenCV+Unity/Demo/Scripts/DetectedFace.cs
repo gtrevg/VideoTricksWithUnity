@@ -35,6 +35,8 @@
         {
             Name = name;
             Region = region;
+
+            //MasterEVNTmanager.CALL_RectReady(Region.X, Region.Y, Region.Width, Region.Height);
         }
 
         /// <summary>
