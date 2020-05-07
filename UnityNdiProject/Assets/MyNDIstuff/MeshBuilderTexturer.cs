@@ -28,7 +28,7 @@ public class MeshBuilderTexturer : MonoBehaviour
         //        new Vector2(1, 1)
         //};
 
-        headDownUv = GetUVRectFromPixels(0, 380, 128, 128, 258, 256);
+        headDownUv = GetUVRectFromPixels(64, 64, 128, 128, 258, 256);
         ApplyUvToUvArray(headDownUv, ref uv);
         Vector3[] normals = new Vector3[4]
         {
