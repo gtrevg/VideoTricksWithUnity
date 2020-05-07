@@ -3,7 +3,22 @@ guid: a06e73b70439f7b48bcae016a2a74cce
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 0025
+    second: {fileID: 2100000, guid: 4ad07a93abb461b43a3ce2e7a2d2fdfa, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GOPR4482STILL
+    second: {fileID: 2100000, guid: 6a8cf2c5928583047ac91dd14154e1fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: unknown
+    second: {fileID: 2100000, guid: 0a0cb5ce01a8810498134d2de849305a, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
