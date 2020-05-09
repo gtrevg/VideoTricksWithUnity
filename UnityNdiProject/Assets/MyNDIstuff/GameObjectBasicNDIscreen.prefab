@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sourceName: DESKTOP-A98BC6G (NVIDIA GeForce GTX 770M 1)
-  _targetTexture: {fileID: 8400000, guid: 2ddec18c93187fa46a5357bc52b447df, type: 2}
+  _targetTexture: {fileID: 8400000, guid: 3e47ee12d32b70440a6c18e2b3136b83, type: 2}
   _targetRenderer: {fileID: 0}
   _targetMaterialProperty: _MainTex

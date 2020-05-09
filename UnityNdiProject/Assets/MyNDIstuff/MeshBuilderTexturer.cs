@@ -92,7 +92,7 @@ public class MeshBuilderTexturer : MonoBehaviour
         GameObject go = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
         go.transform.localScale = new Vector3(0.35f, 0.4f, 1);
         go.GetComponent<MeshFilter>().mesh = mesh;
-        go.GetComponent<MeshRenderer>().material = leMateriel;
+        go.GetComponent<MeshRenderer>().sharedMaterial = leMateriel;
         go.transform.parent = this.transform;
         go.transform.localPosition = new Vector3(0, 0, 0);
 
@@ -133,9 +133,9 @@ public class MeshBuilderTexturer : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-      //  headDownUv = GetUVRectFromPixels(_head_x, _head_y, _head_W, _head_H, _textureWidth, _textureHeight);
-     //   ApplyUvToUvArray(headDownUv, ref uv);
-    }
+    //void Update()
+    //{
+    //  //  headDownUv = GetUVRectFromPixels(_head_x, _head_y, _head_W, _head_H, _textureWidth, _textureHeight);
+    // //   ApplyUvToUvArray(headDownUv, ref uv);
+    //}
 }
