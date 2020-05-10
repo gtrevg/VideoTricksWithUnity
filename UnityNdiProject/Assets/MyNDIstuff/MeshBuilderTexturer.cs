@@ -8,7 +8,8 @@ public class MeshBuilderTexturer : MonoBehaviour
     private Vector2[] headDownUv;
     public GameObject targ;
     Mesh mesh;
-
+    //public GameObject FacemeshObj;
+   // Mesh _facemesh;
     private void OnEnable()
     {
         MasterEVNTmanager.OnRectReady += HeardNEwRect;
@@ -28,6 +29,8 @@ public class MeshBuilderTexturer : MonoBehaviour
       headDownUv = GetUVRectFromPixels(_head_x, _head_y, _head_W, _head_H, _textureWidth, _textureHeight);
       ApplyUvToUvArray(headDownUv, ref uv);
         mesh.uv = uv;
+
+      //   _facemesh.uv = uv;
     }
     int _head_x = 0;
     int _head_y = 64;
@@ -87,16 +90,22 @@ public class MeshBuilderTexturer : MonoBehaviour
         mesh.vertices = vertices;
         mesh.triangles = tris;
         mesh.uv = uv;
+        
         mesh.normals = normals;
 
         GameObject go = new GameObject("Mesh", typeof(MeshFilter), typeof(MeshRenderer));
-        go.transform.localScale = new Vector3(0.35f, 0.4f, 1);
+        go.transform.localScale = new Vector3(0.4f, 0.38f, 1);
         go.GetComponent<MeshFilter>().mesh = mesh;
         go.GetComponent<MeshRenderer>().sharedMaterial = leMateriel;
         go.transform.parent = this.transform;
         go.transform.localPosition = new Vector3(0, 0, 0);
 
 
+        //_facemesh= FacemeshObj.GetComponent<MeshFilter>().mesh;
+        //FacemeshObj.GetComponent<MeshRenderer>().sharedMaterial = leMateriel;
+        //FacemeshObj.transform.parent = this.transform;
+         
+      //  _facemesh.uv = uv;
     }
 
 
