@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class KitchenCtrl : MonoBehaviour
 {
+    public GameObject KitchenObj;
 
     public GameObject IslandObj;
     public GameObject FridgeDoorObj;
@@ -30,11 +31,33 @@ public class KitchenCtrl : MonoBehaviour
     public GameObject SmallWhiteBowl;
     public GameObject TissueBox;
 
+    //public GameObject Solid_Ceiling;
+    //public List<GameObject> Crumbs_Ceiling;
+
+    public GameObject Solid_MidWall;
+    public List<GameObject> Crumbs_MidWall;
+
+    public GameObject Solid_BackWall;
+    public List<GameObject> Crumbs_BackWall;
+
+    public GameObject Solid_Bar;
+    public List<GameObject> Crumbs_Bar;
+
+    public GameObject Solid_RightWall;
+    public List<GameObject> Crumbs_RightWall;
+
     // Start is called before the first frame update
     void Start()
     {
         
     }
+
+    #region privates
+
+    
+
+
+    #endregion
 
     // Update is called once per frame
     void Update()
