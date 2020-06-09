@@ -2,7 +2,10 @@ fileFormatVersion: 2
 guid: 6254e175e7de5844bb8cb3bf078900a0
 ModelImporter:
   serializedVersion: 19300
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      74: 8456627217210041456
+    second: ArmatureMayaNinja|Armature|mixamo.com|Layer0
   externalObjects:
   - first:
       type: UnityEngine:Material
