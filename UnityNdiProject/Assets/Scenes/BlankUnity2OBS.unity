@@ -121,6 +121,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &274787852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 274787853}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &274787853
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274787852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.84, y: 4.452418, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &526575130
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +241,41 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70545596
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.00031866902
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0006496126
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7087534
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.72201
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 16.351
+      objectReference: {fileID: 0}
+    - target: {fileID: -6940136801567324131, guid: a06e73b70439f7b48bcae016a2a74cce,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -16.378
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a06e73b70439f7b48bcae016a2a74cce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -365,6 +430,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -52.7, y: -488.6, z: 0}
+--- !u!1 &1303898583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303898585}
+  - component: {fileID: 1303898584}
+  m_Layer: 0
+  m_Name: ObjController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1303898584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303898583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f436f74fe1cef4292880cefdfc56e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  KitchenObj: {fileID: 1994169968}
+  PivotPoint: {fileID: 274787852}
+  Crumbs_Ceiling: []
+  Crumbs_MidWall: []
+  Crumbs_BackWall: []
+  Crumbs_Bar: []
+  Crumbs_RightWall: []
+--- !u!4 &1303898585
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303898583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.3988079, y: 0.6617564, z: -2.065544}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348781574
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,45 +762,3 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1144532810}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1994169970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1994169968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41f436f74fe1cef4292880cefdfc56e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  KitchenObj: {fileID: 0}
-  IslandObj: {fileID: 0}
-  FridgeDoorObj: {fileID: 0}
-  CabL1Obj: {fileID: 0}
-  CabCornObj: {fileID: 0}
-  CabR1Obj: {fileID: 0}
-  HauteObj: {fileID: 0}
-  Trashcan: {fileID: 0}
-  Fridge: {fileID: 0}
-  Barsool1Obj: {fileID: 0}
-  Barsool2Obj: {fileID: 0}
-  Barsool3Obj: {fileID: 0}
-  WoodStool: {fileID: 0}
-  CoffeMaker: {fileID: 0}
-  Nespresso: {fileID: 0}
-  KnifeBlock: {fileID: 0}
-  WoodenSpoonVase: {fileID: 0}
-  WaterBoiler: {fileID: 0}
-  Toaster: {fileID: 0}
-  LargeYellowBowl: {fileID: 0}
-  Britta: {fileID: 0}
-  BrownSquareBasket: {fileID: 0}
-  Lightbasket: {fileID: 0}
-  SmallWhiteBowl: {fileID: 0}
-  TissueBox: {fileID: 0}
-  Solid_Ceiling: {fileID: 0}
-  Solid_MidWall: {fileID: 0}
-  Solid_BackWall: {fileID: 0}
-  Solid_Bar: {fileID: 0}
-  Solid_RightWall: {fileID: 0}
