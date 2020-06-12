@@ -52,14 +52,15 @@ public class KitchenCtrl : MonoBehaviour
     private GameObject FloorColliderObj;
     private GameObject CounterColliderObj;
 
-    int childcount = 0;
+  
+    private void Awake()
+    {       
+        //gather elements
+        GatherObjects();
+    }
     // Start is called before the first frame update
     void Start()
     {
-
-        //gather elements
-        GatherObjects();
-
         StripColliders();
 
         ToggleListObjects(Crumbs_Ceiling, false);
@@ -80,31 +81,52 @@ public class KitchenCtrl : MonoBehaviour
         {
             if (this.KitchenObj.transform.GetChild(c).name.Contains("Ceiling.Crumb_"))
             {
+                if (this.KitchenObj.transform.GetChild(c).gameObject.GetComponent<TransformInitializer>() == null) {
+                    this.KitchenObj.transform.GetChild(c).gameObject.AddComponent<TransformInitializer>();
+                }
+                
                 Crumbs_Ceiling.Add(this.KitchenObj.transform.GetChild(c).gameObject);
             }
             else
             if (this.KitchenObj.transform.GetChild(c).name.Contains("CeilingBar.Crumb_cell"))
             {
+                if (this.KitchenObj.transform.GetChild(c).gameObject.GetComponent<TransformInitializer>() == null)
+                {
+                    this.KitchenObj.transform.GetChild(c).gameObject.AddComponent<TransformInitializer>();
+                }
                 Crumbs_Bar.Add(this.KitchenObj.transform.GetChild(c).gameObject);
             }
             else
             if (this.KitchenObj.transform.GetChild(c).name.Contains("WallMid.Crumb_cell"))
             {
+                if (this.KitchenObj.transform.GetChild(c).gameObject.GetComponent<TransformInitializer>() == null)
+                {
+                    this.KitchenObj.transform.GetChild(c).gameObject.AddComponent<TransformInitializer>();
+                }
                 Crumbs_MidWall.Add(this.KitchenObj.transform.GetChild(c).gameObject);
             }
             else
             if (this.KitchenObj.transform.GetChild(c).name.Contains("WallBack.Crumb_"))
             {
+                if (this.KitchenObj.transform.GetChild(c).gameObject.GetComponent<TransformInitializer>() == null)
+                {
+                    this.KitchenObj.transform.GetChild(c).gameObject.AddComponent<TransformInitializer>();
+                }
                 Crumbs_BackWall.Add(this.KitchenObj.transform.GetChild(c).gameObject);
             }
             else
             if (this.KitchenObj.transform.GetChild(c).name.Contains("WallRigh.Crumb_"))
             {
+                if (this.KitchenObj.transform.GetChild(c).gameObject.GetComponent<TransformInitializer>() == null)
+                {
+                    this.KitchenObj.transform.GetChild(c).gameObject.AddComponent<TransformInitializer>();
+                }
                 Crumbs_RightWall.Add(this.KitchenObj.transform.GetChild(c).gameObject);
             }
             else
             if (this.KitchenObj.transform.GetChild(c).name.CompareTo("Ceiling.Crumb") == 0)
             {
+
                 Solid_Ceiling = this.KitchenObj.transform.GetChild(c).gameObject;
             }
             else
@@ -198,7 +220,7 @@ public class KitchenCtrl : MonoBehaviour
     }
 
     void StripColliders() {
-       IslandColliderObj.GetComponent<MeshRenderer>().enabled = false;
+        IslandColliderObj.GetComponent<MeshRenderer>().enabled = false;
         IslandColliderObj.AddComponent<MeshCollider>();
         //IslandColliderObj.GetComponent<MeshCollider>().convex = true;
         IslandColliderObj.AddComponent<Rigidbody>();
@@ -223,7 +245,75 @@ public class KitchenCtrl : MonoBehaviour
         foreach (GameObject go in Crumbs_Ceiling) {
            go.AddComponent<MeshCollider>();
            go.GetComponent<MeshCollider>().convex = true;
+           go.AddComponent<Rigidbody>();
+           go.GetComponent<Rigidbody>().isKinematic = true;
+           go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_BackWall)
+        {
+            go.AddComponent<MeshCollider>();
+            go.GetComponent<MeshCollider>().convex = true;
             go.AddComponent<Rigidbody>();
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_Bar)
+        {
+            go.AddComponent<MeshCollider>();
+            go.GetComponent<MeshCollider>().convex = true;
+            go.AddComponent<Rigidbody>();
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_MidWall)
+        {
+            go.AddComponent<MeshCollider>();
+            go.GetComponent<MeshCollider>().convex = true;
+            go.AddComponent<Rigidbody>();
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_RightWall)
+        {
+            go.AddComponent<MeshCollider>();
+            go.GetComponent<MeshCollider>().convex = true;
+            go.AddComponent<Rigidbody>();
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+    }
+
+    void TurnGravityOff() {
+        foreach (GameObject go in Crumbs_Ceiling)
+        {
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_BackWall)
+        {
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_Bar)
+        {
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_MidWall)
+        {
+            go.GetComponent<Rigidbody>().isKinematic = true;
+            go.GetComponent<Rigidbody>().useGravity = false;
+        }
+
+        foreach (GameObject go in Crumbs_RightWall)
+        {
             go.GetComponent<Rigidbody>().isKinematic = true;
             go.GetComponent<Rigidbody>().useGravity = false;
         }
@@ -249,22 +339,77 @@ public class KitchenCtrl : MonoBehaviour
 
     }
 
+    void ResetBlocks() {
+        foreach (GameObject go in Crumbs_Ceiling)
+        {
+            go.GetComponent<TransformInitializer>().ResetPosRot();
+        }
+
+        foreach (GameObject go in Crumbs_BackWall)
+        {
+            go.GetComponent<TransformInitializer>().ResetPosRot();
+        }
+
+        foreach (GameObject go in Crumbs_Bar)
+        {
+            go.GetComponent<TransformInitializer>().ResetPosRot();
+        }
+
+        foreach (GameObject go in Crumbs_MidWall)
+        {
+            go.GetComponent<TransformInitializer>().ResetPosRot();
+        }
+
+        foreach (GameObject go in Crumbs_RightWall)
+        {
+            go.GetComponent<TransformInitializer>().ResetPosRot();
+           
+        }
+
+    }
+
+    void triggerCeilingDrop()
+    {
+        Solid_Ceiling.GetComponent<MeshRenderer>().enabled = false;
+        ToggleListObjects(Crumbs_Ceiling, true);
+        foreach (GameObject go in Crumbs_Ceiling)
+        {
+            //go.GetComponent<MeshRenderer>().enabled = true;
+
+            go.GetComponent<Rigidbody>().isKinematic = false;
+            go.GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
+
+    void triggerMidWall()
+    {
+        Solid_MidWall.GetComponent<MeshRenderer>().enabled = false;
+        ToggleListObjects(Crumbs_MidWall, true);
+        foreach (GameObject go in Crumbs_MidWall)
+        {
+            //go.GetComponent<MeshRenderer>().enabled = true;
+
+            go.GetComponent<Rigidbody>().isKinematic = false;
+            go.GetComponent<Rigidbody>().useGravity = true;
+        }
+    }
     #endregion
 
     // Update is called once per frame
     void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+
+            //triggerCeilingDrop();
+            triggerMidWall();
+
+        }
         if (Input.GetKeyDown(KeyCode.Space)) {
 
-            Solid_Ceiling.GetComponent<MeshRenderer>().enabled = false;
-            ToggleListObjects(Crumbs_Ceiling, true);
-            foreach (GameObject go in Crumbs_Ceiling)
-            {
-                //go.GetComponent<MeshRenderer>().enabled = true;
-
-                go.GetComponent<Rigidbody>().isKinematic = false;
-                go.GetComponent<Rigidbody>().useGravity = true;
-            }
+            TurnGravityOff();
+            ResetBlocks();
 
         }
         
