@@ -17,7 +17,7 @@ public class TransformInitializer : MonoBehaviour
         InitialRotation = this.transform.rotation;
     }
     public void ResetPosRot() {
-        this.transform.position = InitialProsition;
+        this.transform.localPosition = InitialProsition;
         this.transform.rotation=InitialRotation;
     }
 

@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class KitchenCtrl : MonoBehaviour
 {
     public GameObject KitchenObj;
     public GameObject PivotPoint;
+    public Animator pivator;
 
     private GameObject IslandObj;
     private GameObject FridgeDoorObj;
@@ -54,8 +56,9 @@ public class KitchenCtrl : MonoBehaviour
 
   
     private void Awake()
-    {       
+    {
         //gather elements
+        pivator = PivotPoint.GetComponent<Animator>();
         GatherObjects();
     }
     // Start is called before the first frame update
@@ -70,8 +73,9 @@ public class KitchenCtrl : MonoBehaviour
         ToggleListObjects(Crumbs_RightWall, false);
         // create psudoarmature
 
-        AttacheRlevantOjectsToPivot();
-
+         AttacheRlevantOjectsToPivot();
+        //dettachall();
+        //AttacheRlevantOjectsToPivot();
     }
 
     #region privates
@@ -336,7 +340,42 @@ public class KitchenCtrl : MonoBehaviour
         foreach (GameObject go in Crumbs_Bar) { go.transform.parent = PivotPoint.transform; }
 
         foreach (GameObject go in Crumbs_BackWall) { go.transform.parent = PivotPoint.transform; }
+        foreach (GameObject go in Crumbs_MidWall) { go.transform.parent = PivotPoint.transform; }
+        foreach (GameObject go in Crumbs_RightWall) { go.transform.parent = PivotPoint.transform; }
+    }
+    void dettachall()
+    {
+        foreach (GameObject go in Crumbs_Ceiling) { go.transform.parent =null; }
 
+        foreach (GameObject go in Crumbs_Bar) { go.transform.parent = null; }
+
+        foreach (GameObject go in Crumbs_BackWall) { go.transform.parent = null; }
+        foreach (GameObject go in Crumbs_MidWall) { go.transform.parent = null; }
+        foreach (GameObject go in Crumbs_RightWall) { go.transform.parent = null; }
+    }
+    public void DropCrumbs(int argSet) {
+        if (argSet == 0)
+        {
+            P1state = true;
+
+
+        }
+        else
+        if (argSet == 1)
+        {
+
+            triggerBarlDrop();
+            triggerrightWallDrop();
+
+
+        }
+        else
+            if (argSet == 2) {
+            triggerBAckwallDrop();
+            triggerCeilingDrop();
+            triggerMidWall();
+        }
+    
     }
 
     void ResetBlocks() {
@@ -378,8 +417,54 @@ public class KitchenCtrl : MonoBehaviour
 
             go.GetComponent<Rigidbody>().isKinematic = false;
             go.GetComponent<Rigidbody>().useGravity = true;
+            go.transform.parent = null;
         }
     }
+
+
+    void triggerBAckwallDrop()
+    {
+        Solid_BackWall.GetComponent<MeshRenderer>().enabled = false;
+        ToggleListObjects(Crumbs_BackWall, true);
+        foreach (GameObject go in Crumbs_BackWall)
+        {
+            //go.GetComponent<MeshRenderer>().enabled = true;
+
+            go.GetComponent<Rigidbody>().isKinematic = false;
+            go.GetComponent<Rigidbody>().useGravity = true;
+            go.transform.parent = null;
+        }
+    }
+
+    void triggerBarlDrop()
+    {
+        Solid_Bar.GetComponent<MeshRenderer>().enabled = false;
+        ToggleListObjects(Crumbs_Bar, true);
+        foreach (GameObject go in Crumbs_Bar)
+        {
+            //go.GetComponent<MeshRenderer>().enabled = true;
+
+            go.GetComponent<Rigidbody>().isKinematic = false;
+            go.GetComponent<Rigidbody>().useGravity = true;
+            go.transform.parent = null;
+        }
+    }
+
+
+
+    void triggerrightWallDrop()
+    {
+        Solid_RightWall.GetComponent<MeshRenderer>().enabled = false;
+        ToggleListObjects(Crumbs_RightWall, true);
+        foreach (GameObject go in Crumbs_RightWall)
+        {
+            //go.GetComponent<MeshRenderer>().enabled = true;
+            go.GetComponent<Rigidbody>().isKinematic = false;
+            go.GetComponent<Rigidbody>().useGravity = true;
+            go.transform.parent = null;
+        }
+    }
+
 
     void triggerMidWall()
     {
@@ -391,27 +476,56 @@ public class KitchenCtrl : MonoBehaviour
 
             go.GetComponent<Rigidbody>().isKinematic = false;
             go.GetComponent<Rigidbody>().useGravity = true;
+            go.transform.parent = null;
         }
     }
     #endregion
 
     // Update is called once per frame
+
+    bool P1state = true;
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-
-            //triggerCeilingDrop();
-            triggerMidWall();
-
+            if (P1state == true)
+            {
+                P1state = false;
+                pivator.SetTrigger("roofoff");
+            }
         }
-        if (Input.GetKeyDown(KeyCode.Space)) {
 
-            TurnGravityOff();
-            ResetBlocks();
 
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+           
+            if (P1state == false)
+            {
+                TurnGravityOff();
+                pivator.SetTrigger("reset");
+                PivotPoint.transform.position = new Vector3(0, 0, 0);
+                ResetBlocks();
+                AttacheRlevantOjectsToPivot();
+            }
         }
+
+         
+
+
+        //if (PivotPoint.transform.position.y > 2.0f) {
+        //    if (trigged == false)
+        //    {
+        //        dettachall();
+        //        trigged = true;
+        //        triggerCeilingDrop();
+        //        triggerMidWall();
+        //        triggerBAckwallDrop();
+        //        triggerrightWallDrop();
+        //        triggerBarlDrop();
+        //    }
         
+        //}
+   
     }
 }
